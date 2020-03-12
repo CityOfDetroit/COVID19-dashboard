@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>COVID-19 Dashboard</title>
+  <meta name="description" content="Dashboard for tracking COVID-19 cases.">
+  <meta name="author" content="Edgar Montes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
+</head>
+<body>
+  <section class="dashboard">
+        <section id="loader-overlay" class="active">
+            <article>
+            <div>
+                <div className="loader">
+                <div className="loader__bar"></div>
+                <div className="loader__bar"></div>
+                <div className="loader__bar"></div>
+                <div className="loader__bar"></div>
+                <div className="loader__bar"></div>
+                <div className="loader__ball"></div>
+                </div>
+                <p>LOADING</p>
+            </div>
+            </article>
+        </section>
+      <article class="data-block detected">
+          <h4>Cases Detected</h4>
+          <div>
+              <span>0</span>
+          </div>
+      </article>
+      <article class="data-block quarantined">
+        <h4>Quarantined</h4>
+        <div>
+            <span>0</span>
+        </div>
+      </article>
+      <article class="data-block recovered">
+        <h4>Recovered</h4>
+        <div>
+            <span>0</span>
+        </div>
+      </article>
+      <article class="data-block deaths">
+        <h4>Deaths</h4>
+        <div>
+            <span>0</span>
+        </div>
+      </article>
+      <p class="update"><i></i></p>
+  </section>
+  <script src="index.js"></script>
+</body>
+</html>

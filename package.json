@@ -1,0 +1,39 @@
+{
+  "name": "covid19-dashboard",
+  "version": "1.0.0",
+  "description": "Dashboard for tracking COVID-19 cases ",
+  "main": "index.js",
+  "scripts": {
+    "start": "parcel src/index.html --https --no-cache -p 3000",
+    "test": "./node_modules/.bin/cypress open",
+    "build": "parcel build src/index.js --no-cache --public-url '.' -d build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CityOfDetroit/COVID19-dashboard.git"
+  },
+  "keywords": [
+    "coronavirus",
+    "covid-19",
+    "dashboard",
+    "tracker"
+  ],
+  "author": "Edgar Montes",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/CityOfDetroit/COVID19-dashboard/issues"
+  },
+  "homepage": "https://github.com/CityOfDetroit/COVID19-dashboard#readme",
+  "babel": {
+    "presets": [
+      "@babel/preset-env"
+    ]
+  },
+  "devDependencies": {
+    "@babel/core": "^7.8.7",
+    "@babel/preset-env": "^7.8.7",
+    "cssnano": "^4.1.10",
+    "cypress": "^4.1.0",
+    "sass": "^1.26.3"
+  }
+}

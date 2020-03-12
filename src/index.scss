@@ -1,0 +1,333 @@
+$color-1: #004445;
+$color-2: #9FD5B3;
+$color-3: #feb70d;
+$color-4: #cb4d4f;
+$color-5: #5f355a;
+$color-6: #325adc;
+$white: #fff;
+.dashboard{
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-column-gap: 10px;
+    grid-row-gap: 15px;
+    grid-template-areas: 
+    "detected quarantined"
+    "recovered deaths"
+    "update update";
+
+    .data-block{
+        border: .1em solid;
+
+        h4, h4{
+            background-color: #eaeaea;
+            margin: 0;
+            padding: 1em;
+            text-align: center;
+            text-transform: uppercase;
+        }
+
+        div{
+            display: flex;
+
+            span{
+                font-size: 3em;
+                margin: auto;
+            }
+        }
+    }
+
+    .data-block.detected{
+        border-color: $color-1;
+
+        h4{
+            background-color: $color-1;
+            color: $white;
+        }
+
+        span{
+            color: $color-1;
+        }
+    }
+
+    .data-block.quarantined{
+        border-color: $color-3;
+        
+        h4{
+            background-color: $color-3;
+        }
+
+        span{
+            color: $color-3;
+        }
+    }
+
+    .data-block.recovered{
+        border-color: $color-6;
+        
+        h4{
+            background-color: $color-6;
+            color: $white;
+        }
+
+        span{
+            color: $color-6;
+        }
+    }
+
+    .data-block.deaths{
+        border-color: $color-4;
+        
+        h4{
+            background-color: $color-4;
+            color: $white;
+        }
+
+        span{
+            color: $color-4;
+        }
+    }
+
+    .update{
+        text-align: center;
+    }
+}
+.detected{
+    grid-area: detected;
+}
+.quarantined{
+    grid-area: quarantined;
+}
+.recovered{
+    grid-area: recovered;
+}
+.deaths{
+    grid-area: deaths;
+}
+.update{
+    grid-area: update;
+}
+// -----------------------------------------------------------------------------
+// NOTE: Media queries
+// -----------------------------------------------------------------------------
+@media all and (min-width: 760px) {
+    .dashboard{
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
+        grid-template-areas: 
+        "detected detected detected"
+        "quarantined recovered deaths"
+        "update update update"
+    }
+}
+// -----------
+// Loader
+// -----------
+#loader-overlay{
+	display: none;
+
+	article{
+		padding: 0;
+		transition: all .2s ease-in-out;
+	}
+}
+
+#loader-overlay.active{
+	position: absolute;
+	z-index: 5;
+	height: 100%;
+	width: 100%;
+	padding: 1em;
+	background-color: rgba($white, .7);
+	display: flex;
+
+	article{
+		margin: auto;
+		position: relative;
+		max-width: 100%;
+		padding: 4em 2em;
+		transition: all .2s ease-in-out;
+
+		div{
+			padding: .5em;
+
+      p{
+        font-size: 1.28em;
+      }
+		}
+	}
+}
+
+.loader {
+  position: relative;
+  width: 75px;
+  height: 100px;
+
+  &__bar {
+    position: absolute;
+    bottom: 0;
+    width: 10px;
+    height: 50%;
+    background: $color-4;
+    transform-origin: center bottom;
+    box-shadow: 1px 1px 0 rgba(0,0,0,.2);
+
+    @for $i from 1 through 5 {
+       &:nth-child(#{$i}) {
+         left: ($i - 1) * 20px;
+         transform: scale(1,$i*.2);
+         animation: barUp#{$i} 4s infinite;
+        }
+    }
+
+  }
+
+  &__ball {
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    width: 10px;
+    height: 10px;
+    background: $color-4;
+    border-radius: 50%;
+    animation: ball 4s infinite;
+  }
+}
+
+@keyframes ball {
+  0% {
+    transform: translate(0, 0);
+  }
+  5% {
+    transform: translate(10px, -14px);
+  }
+  10% {
+    transform: translate(20px, -10px)
+  }
+  17% {
+    transform: translate(30px, -24px)
+  }
+  20% {
+    transform: translate(40px, -20px)
+  }
+  27% {
+    transform: translate(50px, -34px)
+  }
+  30% {
+    transform: translate(60px, -30px)
+  }
+  37% {
+    transform: translate(70px, -44px)
+  }
+  40% {
+    transform: translate(80px, -40px)
+  }
+  50% {
+    transform: translate(80px, 0)
+  }
+  57% {
+    transform: translate(70px, -14px)
+  }
+  60% {
+    transform: translate(60px, -10px)
+  }
+  67% {
+    transform: translate(50px, -24px)
+  }
+  70% {
+    transform: translate(40px, -20px)
+  }
+  77% {
+    transform: translate(30px, -34px)
+  }
+  80% {
+    transform: translate(20px, -30px)
+  }
+  87% {
+    transform: translate(10px, -44px)
+  }
+  90% {
+    transform: translate(0, -40px)
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes barUp1 {
+  0% {
+    transform: scale(1, .2);
+  }
+  40%{
+    transform: scale(1, .2);
+  }
+  50% {
+    transform: scale(1, 1);
+  }
+  90% {
+    transform: scale(1,1);
+  }
+  100% {
+    transform: scale(1,.2);
+  }
+}
+@keyframes barUp2 {
+  0% {
+    transform: scale(1, .4);
+  }
+  40% {
+    transform: scale(1, .4);
+  }
+  50% {
+    transform: scale(1, .8);
+  }
+  90% {
+    transform: scale(1, .8);
+  }
+  100% {
+    transform: scale(1, .4);
+  }
+}
+@keyframes barUp3 {
+  0% {
+    transform: scale(1, .6);
+  }
+  100% {
+    transform: scale(1, .6);
+  }
+}
+@keyframes barUp4 {
+  0% {
+    transform: scale(1, .8);
+  }
+  40% {
+    transform: scale(1, .8);
+  }
+  50% {
+    transform: scale(1, .4);
+  }
+  90% {
+    transform: scale(1, .4);
+  }
+  100% {
+    transform: scale(1, .8);
+  }
+}
+@keyframes barUp5 {
+  0% {
+    transform: scale(1, 1);
+  }
+  40% {
+    transform: scale(1, 1);
+  }
+  50% {
+    transform: scale(1, .2);
+  }
+  90% {
+    transform: scale(1, .2);
+  }
+  100% {
+    transform: scale(1, 1);
+  }
+}
