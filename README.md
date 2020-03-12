@@ -15,7 +15,7 @@ Please make sure these are installed locally
 
 1. Download the repo.
     ```
-    $ git clone git@github.com:CityOfDetroit/sms-dashboard.git
+    $ git clone git@github.com:CityOfDetroit/COVID19-dashboard.git
     ```
 2. Install node dependencies.
 
