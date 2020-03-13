@@ -9,11 +9,12 @@ $white: #fff;
     position: relative;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
     grid-column-gap: 10px;
     grid-row-gap: 15px;
     grid-template-areas: 
-    "detected detected detected"
+    "detected-det detected-det detected-mich"
+    "detected-det detected-det monitored"
     "quarantined recovered deaths"
     "update update update";
 
@@ -50,6 +51,33 @@ $white: #fff;
         span{
             color: $color-1;
         }
+    }
+
+    .data-block.detected.detected-det{
+
+      h4{
+        font-size: 2em;
+      }
+      div{
+        height: calc(100% - 8em);
+
+        span{
+          font-size: 6em;
+        }
+      }
+    }
+
+    .data-block.monitored{
+      border-color: $color-2;
+
+      h4{
+          background-color: $color-2;
+          color: $color-1;
+      }
+
+      span{
+          color: $color-2;
+      }
     }
 
     .data-block.quarantined{
@@ -94,8 +122,14 @@ $white: #fff;
         text-align: center;
     }
 }
-.detected{
-    grid-area: detected;
+.detected-det{
+    grid-area: detected-det;
+}
+.detected-mich{
+  grid-area: detected-mich;
+}
+.monitored{
+  grid-area: monitored;
 }
 .quarantined{
     grid-area: quarantined;
@@ -115,13 +149,26 @@ $white: #fff;
 @media all and (max-width: 550px) {
     .dashboard{
         grid-template-columns: 1fr;
-        grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
         grid-template-areas: 
-        "detected"
+        "detected-det"
+        "detected-mich"
+        "monitored"
         "quarantined" 
         "recovered" 
         "deaths"
-        "update"
+        "update";
+
+        .data-block.detected.detected-det{
+          h4{
+            font-size: 1.5em;
+          }
+          div{
+            span{
+              font-size: 3em;
+            }
+          }
+        }
     }
 }
 // -----------
