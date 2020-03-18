@@ -9,14 +9,11 @@ $white: #fff;
     position: relative;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
     grid-column-gap: 10px;
     grid-row-gap: 15px;
     grid-template-areas: 
-    "detected-det detected-det detected-mich"
-    "detected-det detected-det monitored"
-    "quarantined recovered deaths"
-    "update update update";
+    "detected-det detected-det detected-mich";
 
     .data-block{
         border: .1em solid;
@@ -52,75 +49,9 @@ $white: #fff;
             color: $color-1;
         }
     }
-
-    .data-block.detected.detected-det{
-
-      h4{
-        font-size: 2em;
-      }
-      div{
-        height: calc(100% - 8em);
-
-        span{
-          font-size: 6em;
-        }
-      }
-    }
-
-    .data-block.monitored{
-      border-color: $color-2;
-
-      h4{
-          background-color: $color-2;
-          color: $color-1;
-      }
-
-      span{
-          color: $color-2;
-      }
-    }
-
-    .data-block.quarantined{
-        border-color: $color-3;
-        
-        h4{
-            background-color: $color-3;
-        }
-
-        span{
-            color: $color-3;
-        }
-    }
-
-    .data-block.recovered{
-        border-color: $color-6;
-        
-        h4{
-            background-color: $color-6;
-            color: $white;
-        }
-
-        span{
-            color: $color-6;
-        }
-    }
-
-    .data-block.deaths{
-        border-color: $color-4;
-        
-        h4{
-            background-color: $color-4;
-            color: $white;
-        }
-
-        span{
-            color: $color-4;
-        }
-    }
-
-    .update{
-        text-align: center;
-    }
+}
+.update-date{
+  text-align: center;
 }
 .detected-det{
     grid-area: detected-det;
@@ -128,47 +59,16 @@ $white: #fff;
 .detected-mich{
   grid-area: detected-mich;
 }
-.monitored{
-  grid-area: monitored;
-}
-.quarantined{
-    grid-area: quarantined;
-}
-.recovered{
-    grid-area: recovered;
-}
-.deaths{
-    grid-area: deaths;
-}
-.update{
-    grid-area: update;
-}
 // -----------------------------------------------------------------------------
 // NOTE: Media queries
 // -----------------------------------------------------------------------------
 @media all and (max-width: 550px) {
     .dashboard{
         grid-template-columns: 1fr;
-        grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
         grid-template-areas: 
         "detected-det"
         "detected-mich"
-        "monitored"
-        "quarantined" 
-        "recovered" 
-        "deaths"
-        "update";
-
-        .data-block.detected.detected-det{
-          h4{
-            font-size: 1.5em;
-          }
-          div{
-            span{
-              font-size: 3em;
-            }
-          }
-        }
     }
 }
 // -----------
