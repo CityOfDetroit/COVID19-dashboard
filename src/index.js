@@ -8,7 +8,8 @@ import './index.scss';
         fetch(url)
         .then((resp) => resp.json()) // Transform the data into json
         .then(function(data) {
-            document.querySelector('.data-block.detected-mich span').innerHTML = data.features[0].attributes.Confirmed;
+            document.querySelector('.data-block.detected.mich span').innerHTML = data.features[0].attributes.Confirmed;
+            document.querySelector('.data-block.deaths.mich span').innerHTML = data.features[0].attributes.Deaths;
             let today = new Date(data.features[0].attributes.Last_Update);
             let dd = String(today.getDate()).padStart(2, '0');
             let mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
