@@ -9,13 +9,15 @@ import './index.scss';
         .then((resp) => resp.json()) // Transform the data into json
         .then(function(data) {
             document.querySelector('.data-block.detected-mich span').innerHTML = data.features[0].attributes.Confirmed;
-            let today = new Date();
+            let today = new Date(data.features[0].attributes.Last_Update);
             let dd = String(today.getDate()).padStart(2, '0');
             let mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
             let yyyy = today.getFullYear();
             let time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
             today = `${mm}/${dd}/${yyyy}`;
-            document.querySelector('.update-date i').innerHTML = `Last updated ${today} - ${time}`;
+            console.log(today);
+            console.log(time);
+            document.querySelector('.update-date .mich').innerHTML = `Last updated ${today} - ${time}`;
             document.querySelector('#loader-overlay').className = '';
         });
     });    
