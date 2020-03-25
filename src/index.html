@@ -8,6 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
 </head>
 <body>
+  <div id="vizContainer"></div>
   <section class="dashboard">
       <section id="loader-overlay" class="active">
           <article>
@@ -27,13 +28,13 @@
       <article class="data-block detected det">
           <h4>DETROIT CASES</h4>
           <div>
-              <span>149</span>
+              <span>0</span>
           </div>
       </article>
       <article class="data-block deaths det">
         <h4>DETROIT DEATHS</h4>
         <div>
-            <span>2</span>
+            <span>0</span>
         </div>
       </article>
       <article class="data-block detected mich">
@@ -49,7 +50,8 @@
       </div>
     </article>
   </section>
-  <p class="update-date"><strong>Detroit</strong> - <i>Last updated 03/20/2020 - 15:10:8</i><br><strong>Michigan</strong> - <i class="mich"></i></p>
+  <p class="update-date"><strong>Detroit</strong> - <i class="det"></i><br><strong>Michigan</strong> - <i class="mich"></i></p>
+  <script src="https://codtableau.detroitmi.gov/javascripts/api/tableau-2.min.js"></script>
   <script src="index.js"></script>
 </body>
 </html>

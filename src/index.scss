@@ -5,6 +5,9 @@ $color-4: #cb4d4f;
 $color-5: #5f355a;
 $color-6: #325adc;
 $white: #fff;
+#vizContainer{
+  display: none;
+}
 .dashboard{
     position: relative;
     display: grid;
